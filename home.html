@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fresh Blooms — Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">FB</div>
+        <div>
+          <h1>Fresh Blooms</h1>
+          <div style="color:#6b7280;font-size:13px">Fresh flowers delivered with care</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/home.html">Home</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/cart.html">Cart</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h2>Send love, send flowers 🌸</h2>
+        <p>Same-day delivery available for select cities. Browse our carefully-arranged bouquets.</p>
+        <a href="/shop.html" class="btn" style="margin-top:12px;display:inline-block">Shop Now</a>
+      </section>
+
+      <section>
+        <h3>Featured</h3>
+        <div class="grid" id="featured-grid">
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">© <span id="year"></span> Fresh Blooms</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    async function loadFeatured(){
+      try{
+        const res = await fetch('/api/products');
+        const data = await res.json();
+        const grid = document.getElementById('featured-grid');
+        data.slice(0,3).forEach(p => {
+          const el = document.createElement('article');
+          el.className = 'card';
+          el.innerHTML = `
+            <img src="${p.image_url}" alt="${p.name}">
+            <div class="pad">
+              <h4>${p.name}</h4>
+              <p style="color:#6b7280;margin:6px 0">₹${(p.price_in_paise/100).toFixed(2)}</p>
+              <a href="/shop.html" class="btn">Shop</a>
+            </div>
+          `;
+          grid.appendChild(el);
+        });
+      }catch(e){console.error(e)}
+    }
+    loadFeatured();
+  </script>
+</body>
+</html>

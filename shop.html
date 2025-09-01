@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fresh Blooms — Shop</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">FB</div>
+        <div><h1>Fresh Blooms</h1></div>
+      </div>
+      <nav class="nav">
+        <a href="/home.html">Home</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/cart.html">Cart</a>
+      </nav>
+    </header>
+
+    <main style="display:flex;gap:16px">
+      <section style="flex:1">
+        <h2>Shop</h2>
+        <div class="grid" id="products-grid"></div>
+      </section>
+
+      <aside style="width:320px">
+        <div class="cart-sidebar">
+          <h3>Cart</h3>
+          <div id="cart-items"></div>
+          <div style="margin-top:12px">
+            <strong>Total:</strong> <span id="cart-total">₹0.00</span>
+          </div>
+          <div style="margin-top:12px">
+            <a href="/checkout.html" class="btn">Checkout</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> Fresh Blooms</footer>
+  </div>
+
+  <script src="/js/shop.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fresh Blooms — Checkout</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header"><div class="brand"><div class="logo">FB</div><div><h1>Fresh Blooms</h1></div></div><nav class="nav"><a href="/home.html">Home</a> <a href="/shop.html">Shop</a> <a href="/cart.html">Cart</a></nav></header>
+
+    <main>
+      <h2>Checkout</h2>
+      <div id="checkout-summary"></div>
+
+      <div style="margin-top:12px">
+        <label for="email">Email (for receipt)</label><br/>
+        <input id="email" type="email" placeholder="you@example.com" style="padding:8px;border-radius:6px;border:1px solid #ddd;width:100%;max-width:400px"/>
+      </div>
+
+      <div style="margin-top:12px">
+        <button id="start-checkout" class="btn">Pay with Card</button>
+      </div>
+      <div id="msg" style="margin-top:12px;color:green"></div>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> Fresh Blooms</footer>
+  </div>
+
+  <script src="/js/cart.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>
